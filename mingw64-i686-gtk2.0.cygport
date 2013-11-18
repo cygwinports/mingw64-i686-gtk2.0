@@ -3,7 +3,7 @@ ORIG_PN="gtk+"
 inherit cross gnome2
 
 NAME="mingw64-i686-gtk2.0"
-VERSION=2.24.14
+VERSION=2.24.22
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GTK+ GUI toolkit for Win32 toolchain"
@@ -13,7 +13,15 @@ mingw64-i686-gcc cross compiler, and installs into the
 /usr/i686-w64-mingw32/sys-root/mingw/{lib,include} directories."
 HOMEPAGE="http://www.gtk.org/"
 
-PATCH_URI="01-parallel-install.patch"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/icon-padding.patch
+	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/tooltip-positioning.patch
+	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/window-dragging.patch
+	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/gtk-combo-box-dont-use-invalidated-iter.patch
+	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/mingw32-gtk2-2.15.0-xbuttons.patch
+	01-parallel-install.patch
+	02-enable-static.patch
+"
 
 DIFF_EXCLUDES="gdk.rc"
 
@@ -25,4 +33,3 @@ CYGCONF_ARGS="
 	--with-gdktarget=win32
 	--with-included-immodules
 "
-
