@@ -3,8 +3,8 @@ ORIG_PN="gtk+"
 inherit cross gnome2
 
 NAME="mingw64-i686-gtk2.0"
-VERSION=2.24.22
-RELEASE=2
+VERSION=2.24.23
+RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GTK+ GUI toolkit for Win32 toolchain"
 DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
@@ -20,12 +20,12 @@ PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/gtk-combo-box-dont-use-invalidated-iter.patch
 	http://pkgs.fedoraproject.org/cgit/mingw-gtk2.git/plain/mingw32-gtk2-2.15.0-xbuttons.patch
 	01-parallel-install.patch
-	02-enable-static.patch
 "
 
 DIFF_EXCLUDES="gdk.rc"
 
 CYGCONF_ARGS="
+	--disable-static
 	--disable-glibtest
 	--enable-explicit-deps
 	--disable-test-print-backend
